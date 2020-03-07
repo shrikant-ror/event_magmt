@@ -3,6 +3,8 @@ class Event < ApplicationRecord
   has_many :enrollments
   has_many :users, through: :enrollments, dependent: :destroy
 
+  validates :title, :start_time, :end_time, presence: true
+
   before_create :set_completed_status
 
   private
