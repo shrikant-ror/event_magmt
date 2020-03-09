@@ -1,0 +1,17 @@
+= form_with url: '/events',  method: :get do |form|
+  = form.date_field :start_time, value: Date.today
+  = form.date_field :end_time, value: Date.today
+  = form.submit "Submit"
+
+%table#events
+  %tr
+    %th Event Name
+    %th Event Description
+    %th Event Start Date
+    %th Event End Date
+  - @events.each do |event|
+    %tr
+      %td= event.title
+      %td= event.description
+      %td= event.start_time
+      %td= event.end_time
